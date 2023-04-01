@@ -1,7 +1,8 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using UsersList.DataAccess;
-using UsersList.DataAccess.Entities;
+using UsersList.Contracts.Entities;
+using UsersList.Contracts.Users;
 
 namespace UsersList.UseCases.Users.GetUsers
 {

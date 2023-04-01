@@ -1,4 +1,4 @@
-﻿using UsersList.DataAccess.Entities;
+﻿using UsersList.Contracts.Entities;
 
 namespace UsersList.DataAccess.Initializers
 {

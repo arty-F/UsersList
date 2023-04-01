@@ -1,4 +1,4 @@
-﻿namespace UsersList.UseCases.Users
+﻿namespace UsersList.Contracts.Users
 {
     public record UserDto(
         Guid Id,

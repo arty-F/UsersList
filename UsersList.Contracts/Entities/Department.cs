@@ -1,4 +1,4 @@
-﻿namespace UsersList.DataAccess.Entities
+﻿namespace UsersList.Contracts.Entities
 {
     public class Department
     {
