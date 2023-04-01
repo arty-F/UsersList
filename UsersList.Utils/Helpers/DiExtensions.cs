@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using UsersList.Utils.Mapping;
 
 namespace UsersList.Utils
 {
@@ -6,7 +7,7 @@ namespace UsersList.Utils
     {
         public static IServiceCollection AddUtils(this IServiceCollection services)
         {
-            
+            services.AddAutoMapper(typeof(MappingProfile));
             return services;
         }
     }

@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
 using UsersList.DataAccess;
-using UsersList.DataAccess.Entities;
+using UsersList.Contracts.Entities;
 
 namespace UsersList.UseCases.Users.CreateUser
 {

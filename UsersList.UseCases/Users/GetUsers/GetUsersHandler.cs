@@ -3,16 +3,19 @@ using Microsoft.EntityFrameworkCore;
 using UsersList.DataAccess;
 using UsersList.Contracts.Entities;
 using UsersList.Contracts.Users;
+using AutoMapper;
 
 namespace UsersList.UseCases.Users.GetUsers
 {
     internal class GetUsersHandler : IRequestHandler<GetUsersQuery, GetUsersResponseDto>
     {
         private readonly UsersListDbContext _dbContext;
+        private readonly IMapper _mapper;
 
-        public GetUsersHandler(UsersListDbContext dbContext)
+        public GetUsersHandler(UsersListDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         public async Task<GetUsersResponseDto> Handle(GetUsersQuery query, CancellationToken cancellationToken)
@@ -37,8 +40,7 @@ namespace UsersList.UseCases.Users.GetUsers
             var usersQuery = GetFilteredUsersQuery(request);
             var users = await usersQuery.ToListAsync();
 
-            //TODO add automapper
-            var usersDto = MapUsers(users);
+            var usersDto = _mapper.Map<List<User>, List<UserDto>>(users);
             var result = new GetUsersResponseDto( usersDto);
 
             return result;
@@ -85,16 +87,6 @@ namespace UsersList.UseCases.Users.GetUsers
             }
 
             return users;
-        }
-
-        private List<UserDto> MapUsers(List<User> users)
-        {
-            var result = new List<UserDto>(users.Count);
-            foreach (var user in users)
-            {
-                result.Add(new UserDto(user.Id, user.FirstName, user.LastName, user.Patronymic, user.Salary, user.Departments.Count));
-            }
-            return result;
         }
     }
 }

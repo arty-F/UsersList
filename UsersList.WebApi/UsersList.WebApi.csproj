@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\UsersList.DataAccess\UsersList.DataAccess.csproj" />
     <ProjectReference Include="..\UsersList.UseCases\UsersList.UseCases.csproj" />
+    <ProjectReference Include="..\UsersList.Utils\UsersList.Utils.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using UsersList.DataAccess;
 using UsersList.UseCases;
+using UsersList.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDataAccess(builder.Configuration.GetConnectionString("PostgresConnection")!);
 builder.Services.AddUseCases();
+builder.Services.AddUtils();
 
 var app = builder.Build();
 

@@ -8,7 +8,8 @@ namespace UsersList.Utils.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<User, UserDto>();
+            CreateMap<User, UserDto>()
+                .ForMember(d => d.DepartmentsCount, o => o.MapFrom(s => s.Departments.Count));
         }
     }
 }
