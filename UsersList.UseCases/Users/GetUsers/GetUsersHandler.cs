@@ -49,7 +49,7 @@ namespace UsersList.UseCases.Users.GetUsers
 
             if (request.DepartmentIds != null && request.DepartmentIds.Count > 0)
             {
-                users = users.Where(u => u.UserDepartments.Any(d => request.DepartmentIds.Contains(d.Id)));
+                users = users.Where(u => u.Departments.Any(d => request.DepartmentIds.Contains(d.Id)));
             }
 
             if (request.MinSalary != default)
@@ -91,7 +91,7 @@ namespace UsersList.UseCases.Users.GetUsers
             var result = new List<UserDto>(users.Count);
             foreach (var user in users)
             {
-                result.Add(new UserDto(user.Id, user.FirstName, user.LastName, user.Patronymic, user.Salary, user.UserDepartments.Count));
+                result.Add(new UserDto(user.Id, user.FirstName, user.LastName, user.Patronymic, user.Salary, user.Departments.Count));
             }
             return result;
         }

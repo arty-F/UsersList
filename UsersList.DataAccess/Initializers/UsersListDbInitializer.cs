@@ -6,7 +6,6 @@ namespace UsersList.DataAccess.Initializers
     {
         public List<User> Users { get; private set; } = null!;
         public List<Department> Departments { get; private set; } = null!;
-        public List<UserDepartment> UserDepartments { get; private set; } = null!;
 
         public UsersListDbInitializer()
         {
@@ -73,23 +72,6 @@ namespace UsersList.DataAccess.Initializers
                 Salary = 200m
             };
             Users.Add(dmitry);
-
-            UserDepartments = new List<UserDepartment>
-            {
-                new UserDepartment {Id = Guid.NewGuid(), UserId = anton.Id, DepartmentId = finDep.Id},
-                new UserDepartment {Id = Guid.NewGuid(), UserId = boris.Id, DepartmentId = logDep.Id},
-                new UserDepartment {Id = Guid.NewGuid(), UserId = boris.Id, DepartmentId = buyDep.Id},
-                new UserDepartment {Id = Guid.NewGuid(), UserId = boris.Id, DepartmentId = hrDep.Id},
-                new UserDepartment {Id = Guid.NewGuid(), UserId = vladimir.Id, DepartmentId = finDep.Id},
-                new UserDepartment {Id = Guid.NewGuid(), UserId = vladimir.Id, DepartmentId = entDep.Id},
-                new UserDepartment {Id = Guid.NewGuid(), UserId = grigory.Id, DepartmentId = finDep.Id},
-                new UserDepartment {Id = Guid.NewGuid(), UserId = grigory.Id, DepartmentId = logDep.Id},
-                new UserDepartment {Id = Guid.NewGuid(), UserId = dmitry.Id, DepartmentId = finDep.Id},
-                new UserDepartment {Id = Guid.NewGuid(), UserId = dmitry.Id, DepartmentId = logDep.Id},
-                new UserDepartment {Id = Guid.NewGuid(), UserId = dmitry.Id, DepartmentId = buyDep.Id},
-                new UserDepartment {Id = Guid.NewGuid(), UserId = dmitry.Id, DepartmentId = hrDep.Id},
-                new UserDepartment {Id = Guid.NewGuid(), UserId = dmitry.Id, DepartmentId = entDep.Id},
-            };
         }
     }
 }

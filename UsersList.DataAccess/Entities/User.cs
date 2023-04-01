@@ -7,7 +7,6 @@
         public string LastName { get; set; } = null!;
         public string Patronymic { get; set; } = null!;
         public decimal Salary { get; set; }
-        public virtual List<UserDepartment> UserDepartments { get; set; } = new();
         public virtual List<Department> Departments { get; set; } = new();
     }
 }
